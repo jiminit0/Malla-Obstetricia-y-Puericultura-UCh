@@ -1,6 +1,6 @@
 
 body {
-  background-color: #fc6868;
+  background-color: #ff746c;
   color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -29,7 +29,7 @@ footer {
   color: #ffdfdf;
 }
 .semestre {
-  background-color: #fc6868;
+  background-color: #ff746c;
   border: 2px solid #cf2323;
   padding: 20px;
   border-radius: 20px;
@@ -38,7 +38,7 @@ footer {
   min-width: 200px;
   max-width: 320px;
   align-items: center;
-  background-color: #fc6868;
+  background-color: #ff746c;
   box-sizing: border-box;
   margin-bottom: 30px;
 }
@@ -65,7 +65,7 @@ footer {
   margin: 8px;
   display: center;
   width: 200px;
-  background-color: #fc6868;
+  background-color: #ff746c;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
