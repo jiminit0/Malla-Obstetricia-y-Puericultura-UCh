@@ -1,7 +1,7 @@
 
 body {
-  background-color: #ffe8e8;
-  color: #800000;
+  background-color: #D2042d;
+  color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 20px;
   width: 100%;
@@ -20,17 +20,17 @@ body {
 }
 h1 {
   text-align: center;
-  color: #b52121;
+  color: #ffffff;
 }
 footer {
   margin-top: 40px;
   text-align: center;
   font-style: italic;
-  color: #a52a2a;
+  color: #ffdfdf;
 }
 .semestre {
-  background-color: #ffe8e8;
-  border: 2px solid #a30000;
+  background-color: #dc143c;
+  border: 2px solid #ffffff;
   padding: 20px;
   border-radius: 20px;
   width: 100%;
@@ -38,16 +38,16 @@ footer {
   min-width: 200px;
   max-width: 320px;
   align-items: center;
-  background-color: #ffdfdf;
+  background-color: #dc143c;
   box-sizing: border-box;
   margin-bottom: 30px;
 }
 .semestre h2 {
   text-align: center;
-  color: #b30707;
+  color: #ffe6e6;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #fc8383;
+  border-bottom: 2px solid #c73e3e;
   padding-bottom: 0.5rem;
   margin-bottom: 10px;
   font-size: 1.5rem;
@@ -59,14 +59,14 @@ footer {
   gap: 15px;
 }
 .curso {
-  border: 1px solid #ffb5b5;
+  border: 2px solid #ffffff;
   border-radius: 8px;
   padding: 10px;
   margin: 8px;
   display: center;
   width: 200px;
-  background-color: #ffebeb;
-  color: #b52121;
+  background-color: #ce2029;
+  color: #ffffff;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -77,8 +77,8 @@ footer {
   font-weight: bold;
 }
 .curso.approved {
-  background-color: #ffe8e8;
-  border: 2px solid #fc8383;
+  background-color: #ffe6e6;
+  border: 2px solid #c73e3e;
   color: #cf2323;
   text-decoration: line-through;
 }
