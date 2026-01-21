@@ -1,63 +1,119 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("malla-container");
+    const aprobados = new Set();
 
-    const cursosPorSemestre = {};
+    const cursosGuardados = localStorage.getItem("cursosAprobados");
+    if (cursosGuardados) {
+        const parsed = JSON.parse(cursosGuardados);
+        parsed.forEach(nombre => aprobados.add(nombre));
+    }
+    function guardarAprobados() {
+        localStorage.setItem("cursosAprobados", JSON.stringify([...aprobados]));
+    }
+    function crearCurso(curso) {
+        const div = document.createElement("div");
+        div.className = "curso";
+        div.innerHTML = `
+            <strong>${curso.nombre}</strong><br>
+            <small>${curso.creditos || 0} créditos</small>
+        `;
 
-    cursos.forEach(curso => {
-        if (!cursosPorSemestre[curso.semestre]) {
-            cursosPorSemestre[curso.semestre] = [];
+        let locked = false;
+
+        if (curso.prerrequisitos?.length > 0 && !curso.prerrequisitos.every(pr => aprobados.has(pr))) {
+            locked = true;
         }
-        cursosPorSemestre[curso.semestre].push(curso);
-    });
 
-    for (const semestre in cursosPorSemestre) {
-        const semestreDiv = document.createElement("div");
-        semestreDiv.className = "semestre";
-        const titulo = document.createElement("h2");
-        titulo.textContent = semestre;
-        semestreDiv.appendChild(titulo);
-
-        cursosPorSemestre[semestre].forEach(curso => {
-            const div = document.createElement("div");
-            div.className = "course";
-            div.textContent = curso.nombre;
-
-            div.dataset.nombre = curso.nombre;
-            div.dataset.prerrequisitos = JSON.stringify(curso.prerrequisitos);
-
-            div.addEventListener("click", () => {
-                if (div.classList.contains("locked")) return;
-                div.classList.toggle("approved");
-                actualizarEstado();
-            });
-
-            semestreDiv.appendChild(div);
-        });
-
-        container.appendChild(semestreDiv);
-    }
-
-    function actualizarEstado() {
-        const aprobados = Array.from(document.querySelectorAll(".course.approved"))
-            .map(div => div.dataset.nombre);
-
-        document.querySelectorAll(".course").forEach(div => {
-            const requisitos = JSON.parse(div.dataset.prerrequisitos);
-            const estaAprobado = div.classList.contains("approved");
-
-            if (!estaAprobado && requisitos.length > 0) {
-                const cumplidos = requisitos.every(req => aprobados.includes(req));
-                if (cumplidos) {
-                    div.classList.remove("locked");
-                } else {
-                    div.classList.add("locked");
+        if (curso.creditosMinimos) {
+            let totalCreditos = 0;
+            cursos.forEach(c => {
+                if (aprobados.has(c.nombre)) {
+                    totalCreditos += (c.creditos || 0);
                 }
-            } else if (requisitos.length === 0) {
-                div.classList.remove("locked");
+            });
+            if (totalCreditos < curso.creditosMinimos) {
+                locked = true;
             }
-        });
+        }
+
+        if (locked) {
+            div.classList.add("locked");
+            if (curso.creditosMinimos) {
+                div.title = `Requiere ${curso.creditosMinimos} créditos aprobados`;
+            }
+        } else {
+            div.addEventListener("click", () => {
+                if (aprobados.has(curso.nombre)) {
+                    aprobados.delete(curso.nombre);
+                } else {
+                    aprobados.add(curso.nombre);
+                }
+                guardarAprobados();
+                render();
+            });
+        }
+
+        if (aprobados.has(curso.nombre)) {
+            div.classList.add("approved");
+        }
+
+        return div;
     }
 
-    actualizarEstado();
+    function render() {
+        container.innerHTML = "";
+        const agrupado = {};
+
+        cursos.forEach(curso => {
+            if (!agrupado[curso.semestre]) agrupado[curso.semestre] = [];
+            agrupado[curso.semestre].push(curso);
+        });
+
+        for (const semestre in agrupado) {
+            const semDiv = document.createElement("div");
+            semDiv.className = "semestre";
+            const title = document.createElement("h2");
+            title.textContent = semestre;
+            semDiv.appendChild(title);
+
+    
+            if (semestre === "Año 5") {
+                const cursos = agrupado[semestre];
+
+                const semestre1 = cursos.filter(c => c.semestreExacto === "Semestre 1");
+                const semestre2 = cursos.filter(c => c.semestreExacto === "Semestre 2");
+                const ambos = cursos.filter(c => c.semestreExacto === "Ambos");
+
+                if (semestre1.length) {
+                    const sub = document.createElement("h3");
+                    sub.textContent = "Semestre 1";
+                    semDiv.appendChild(sub);
+                    semestre1.forEach(c => semDiv.appendChild(crearCurso(c)));
+                }
+
+                if (semestre2.length) {
+                    const sub = document.createElement("h3");
+                    sub.textContent = "Semestre 2";
+                    semDiv.appendChild(sub);
+                    semestre2.forEach(c => semDiv.appendChild(crearCurso(c)));
+                }
+
+                if (ambos.length) {
+                    const sub = document.createElement("h3");
+                    sub.textContent = "Ambos semestres";
+                    semDiv.appendChild(sub);
+                    ambos.forEach(c => semDiv.appendChild(crearCurso(c)));
+                }
+            } else {
+                agrupado[semestre].forEach(curso => {
+                    const div = crearCurso(curso);
+                    semDiv.appendChild(div);
+                });
+            }
+
+            container.appendChild(semDiv);
+        }
+    }
+
+    render();
 });
