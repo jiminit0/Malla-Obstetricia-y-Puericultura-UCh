@@ -1,6 +1,6 @@
 
 body {
-  background-color: #D2042d;
+  background-color: #f05d5d;
   color: #ffffff;
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -29,8 +29,8 @@ footer {
   color: #ffdfdf;
 }
 .semestre {
-  background-color: #dc143c;
-  border: 2px solid #ffffff;
+  background-color: #f05d5d;
+  border: 2px solid #cf2323;
   padding: 20px;
   border-radius: 20px;
   width: 100%;
@@ -38,16 +38,16 @@ footer {
   min-width: 200px;
   max-width: 320px;
   align-items: center;
-  background-color: #dc143c;
+  background-color: #f05d5d;
   box-sizing: border-box;
   margin-bottom: 30px;
 }
 .semestre h2 {
   text-align: center;
-  color: #ffe6e6;
+  color: #ffffff;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #c73e3e;
+  border-bottom: 2px solid #cf2323;
   padding-bottom: 0.5rem;
   margin-bottom: 10px;
   font-size: 1.5rem;
@@ -59,13 +59,13 @@ footer {
   gap: 15px;
 }
 .curso {
-  border: 2px solid #ffffff;
+  border: 2px solid #cf2323;
   border-radius: 8px;
   padding: 10px;
   margin: 8px;
   display: center;
   width: 200px;
-  background-color: #ce2029;
+  background-color: #f05d5d;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
@@ -77,9 +77,9 @@ footer {
   font-weight: bold;
 }
 .curso.approved {
-  background-color: #ffe6e6;
-  border: 2px solid #c73e3e;
-  color: #cf2323;
+  background-color: #c73e3e;
+  border: 2px solid #cf2323;
+  color: #ffe6e6;
   text-decoration: line-through;
 }
 .curso.locked {
