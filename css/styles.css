@@ -1,41 +1,90 @@
 
 body {
-    background-color: white;
-    color: #800000;
-    font-family: Arial, sans-serif;
-    padding: 20px;
+  background-color: #ffe8e8;
+  color: #800000;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#malla-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;  
+  padding: 20px;
+  box-sizing: border-box;
 }
 h1 {
-    text-align: center;
-    color: #b22222;
+  text-align: center;
+  color: #b52121;
 }
 footer {
-    margin-top: 40px;
-    text-align: center;
-    font-style: italic;
-    color: #a52a2a;
+  margin-top: 40px;
+  text-align: center;
+  font-style: italic;
+  color: #a52a2a;
 }
 .semestre {
-    margin: 20px 0;
+  background-color: #ffe8e8;
+  border: 2px solid #a30000;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 320px;
+  align-items: center;
+  background-color: #ffdfdf;
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
-.course {
-    border: 2px solid #b22222;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 8px;
-    display: inline-block;
-    width: 200px;
-    background-color: #ffe5e5;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.semestre h2 {
+  text-align: center;
+  color: #b30707;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #fc8383;
+  padding-bottom: 0.5rem;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
-.course.locked {
-    background-color: #cccccc;
-    cursor: not-allowed;
+.cursos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
-.course.approved {
-    background-color: #8b0000;
-    text-decoration: line-through;
-    color: white;
+.curso {
+  border: 1px solid #ffb5b5;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px;
+  display: center;
+  width: 200px;
+  background-color: #ffebeb;
+  color: #b52121;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.curso.approved {
+  background-color: #ffe8e8;
+  border: 2px solid #fc8383;
+  color: #cf2323;
+  text-decoration: line-through;
+}
+.curso.locked {
+  background-color: #ebe4e4;
+  border: 2px solid #e5e7eb;
+  color: #b0acac;
+  cursor: not-allowed;
 }
