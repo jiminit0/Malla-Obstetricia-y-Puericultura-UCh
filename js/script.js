@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             semDiv.appendChild(title);
 
     
-            if (semestre === "Año 5") {
+            if (semestre === "Quinto año") {
                 const cursos = agrupado[semestre];
 
                 const semestre1 = cursos.filter(c => c.semestreExacto === "Semestre 1");
