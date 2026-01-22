@@ -32,7 +32,7 @@ footer {
   background-color: #e2504c;
   border: 2px solid #cf2323;
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 15px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   min-width: 200px;
@@ -40,7 +40,7 @@ footer {
   align-items: center;
   background-color: #e2504c;
   box-sizing: border-box;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .semestre h2 {
   text-align: center;
