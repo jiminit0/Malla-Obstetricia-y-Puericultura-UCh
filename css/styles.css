@@ -3,7 +3,7 @@ body {
   background-color: #ffffff;
   color: #ffffff;
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
@@ -35,8 +35,8 @@ footer {
   border-radius: 15px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  max-width: 320px;
+  min-width: 100px;
+  max-width: 220px;
   align-items: center;
   background-color: #e2504c;
   box-sizing: border-box;
@@ -64,7 +64,7 @@ footer {
   padding: 10px;
   margin: 8px;
   display: center;
-  width: 200px;
+  width: 150px;
   background-color: #ffe6e6;
   color: #c73e3e;
   text-align: center;
