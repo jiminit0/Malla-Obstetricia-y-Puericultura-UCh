@@ -35,8 +35,8 @@ footer {
   border-radius: 25px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  min-width: 220px;
-  max-width: 220px;
+  min-width: 225px;
+  max-width: 225px;
   align-items: center;
   background-color: #e2504c;
   box-sizing: border-box;
@@ -64,7 +64,7 @@ footer {
   padding: 15px;
   margin: 8px;
   display: center;
-  width: 200px;
+  width: 170px;
   background-color: #ffe6e6;
   color: #c73e3e;
   text-align: center;
