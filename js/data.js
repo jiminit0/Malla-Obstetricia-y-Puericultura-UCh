@@ -210,7 +210,7 @@ const cursos = [
     },
   { 
         nombre: "NEONATOLOGÍA 2",
-        semestre: "Año 3 - Semestre 2",
+        semestre: "Semestre 6",
         prerrequisitos: ["CLÍNICA NEONATOLOGÍA 1"],
         creditos: 5
     },
